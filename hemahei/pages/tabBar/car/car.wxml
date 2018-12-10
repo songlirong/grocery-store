@@ -1,0 +1,4 @@
+<view class="car-box">
+    <cart  carts="{{cartProduct}}" tp5="{{tp5}}" selectAllStatus="{{selectAllStatus}}"></cart>
+    <explore explore="car-guess"></explore>
+</view>

@@ -1,0 +1,75 @@
+<view class='result'>
+  <view class='search-title'>
+    <view class='search-title-content'>
+      <navigator class='search-back' open-type='navigateBack'></navigator>
+      <view class='search-input'>
+        <input class='search-input-text' auto-focus='ture' data-values="{{value}}" value='{{value}}' bindinput='bindInput'></input>
+        <view class='search-input-icon' bindtap='set'></view>
+      </view>
+      <view class='search-btn'></view>
+    </view>
+  </view>
+  <view class='result-cate'>
+    <view class='result-category' catchtap='chooseCate'>
+      {{currentName}}
+      <view class="{{allCateFlag?'cate-icon-top':'cate-icon'}}"></view>
+    </view>
+    <view class='cate-list' wx:if="{{allCateFlag}}">
+      <view class='cate-li' catchtap='chooseOne' data-name='全部分类' data-category="0">
+        全部分类
+        <view class='cate-li-icon' wx:if="{{currentName=='全部分类'}}"></view>
+      </view>
+      <block wx:for="{{searchcategory}}" wx:key="{{index}}">
+        <view class='cate-li' catchtap='chooseOne' data-name='{{item.name}}' data-category="{{item.id}}">
+          {{item.name}}
+          <view class='cate-li-icon' wx:if="{{currentName==item.name}}"></view>
+        </view>
+      </block>
+    </view>
+    <view class='result-span'></view>
+    <view class='result-category' catchtap='chooseCategory'>
+      {{currentCate}}
+      <view class="{{categoryFlag?'cate-icon-top':'cate-icon'}}"></view>
+    </view>
+    <view class='cate-list' wx:if="{{categoryFlag}}">
+      <block wx:for="{{['默认排序','价格高到低','价格低到高']}}" wx:key="{{index}}">
+        <view class='cate-li' catchtap='choiceOne' data-name='{{item}}' data-sort="{{index}}">
+          {{item}}
+          <view class='cate-li-icon' wx:if="{{currentCate==item}}"></view>
+        </view>
+      </block>
+    </view>
+    <view class='result-span'></view>
+    <!-- <view class='result-category'>
+      筛选
+      <view class='cate-icon-right'></view>
+      <view class='cate-list-right'></view>
+    </view> -->
+  </view>
+  <view class='result-content'>
+    <view class='guess-list'>
+      <block wx:for="{{searchproduct}}" wx:key="{{index}}">
+        <view class='guess-item'>
+          <view class='item-img'>
+            <image src='{{item.image}}'></image>
+          </view>
+          <view class='item-content'>
+            <view class='item-names'>{{item.name}}</view>
+            <view class='item-discount'>
+              <view class='discount'>{{item.short_description}}</view>
+            </view>
+            <view class='dis-price'>￥{{item.price}}</view>
+            <view class='price'>
+              <view class='num-text'>
+                <view class='num num1'>单价 </view>
+                <view class='num'>￥{{item.special_price}}</view>
+              </view>
+              <view class='car-logo' bindtap="addCar" data-id="{{item.id}}">
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

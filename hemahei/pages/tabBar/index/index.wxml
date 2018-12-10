@@ -1,0 +1,142 @@
+<view class='bgc'>
+  <view id='index-title'>
+    <navigator url="../../user/pages/location/location" hover-class='none' class='location'></navigator>
+    <navigator url='../../goods/pages/search/search' hover-class='none' class='search'>
+      大闸蟹
+      <view class='icon-search'></view>
+    </navigator>
+  </view>
+  <swiper class='banner' indicatorDots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" indicator-color="rgba(0,0,0,0.2)" indicator-active-color="#23a3ff" circular="true">
+    <block wx:for="{{imgUrls}}" wx:key="index">
+      <swiper-item>
+        <image style="width:100%;background:{{item}} no-repeat  center top/ auto 100%;"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view id='category'>
+    <block wx:for="{{picture}}" wx:key="{{index}}">
+      <navigator url='/pages/goods/pages/category/category?id={{item.id}}' hover-class='none'>
+        <view class='one-of-category'>
+          <view class='picture'>
+            <image class='picture' src="{{item.pic}}"></image>
+          </view>
+          <view class='category-text'>{{item.name}}</view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+  <view class='big-mouth-bar'>
+    <view class='bar-logo'></view>
+    <swiper class='bar-swiper' autoplay='true' circular='true' vertical='true' interval='3000' duration='400'>
+      <block wx:for="{{[1,2,3,4,5,6]}}" wx:key="index">
+        <swiper-item class='bar-content'>
+          <view class='content-text'>
+            <view class='fu'>
+              <view class='content-text-h3'>肉食主义</view>
+              <view class='content-text-span'></view>
+            </view>
+            是什么完美治愈了为晚餐纠结的王源？{{item}}
+          </view>
+          <view class='content-img'>
+            <image src='' class='content-img'></image>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class='mask'></view>
+  </view>
+  <view class='worthwhile'>
+    <view class='worthwhile-title'>
+      <view class='title-left'>
+        <view class='title-logo'></view>
+        <view class='title-text'>琯溪蜜柚（红柚）仅12.8元</view>
+        <view class='title-VIP'></view>
+      </view>
+      <view class='title-right'>
+        <view class='title-more'>更多</view>
+        <view class='title-arrow'></view>
+      </view>
+    </view>
+    <scroll-view class='worthwhile-scroll' scroll-x="true" bindscrolltolower="morecate">
+      <view class='worthwhile-content'>
+        <block wx:for="{{[1,2,3,4,5]}}" wx:key="{{index}}">
+          <navigator class='worthwhile-content-list' url='../../goods/pages/details/details' hover-class='none'>
+            <view class='list-img'>
+              <image src='' class='list-img'></image>
+            </view>
+            <view class='list-information'>
+              <view class='information-h3'>
+                【100元6只】无公害大闸蟹
+                <view class='information-span'>蟹黄饱满，鲜香细腻</view>
+              </view>
+              <view class='information-feature'>
+                <view class='feature-identification'>
+                  <view class='identification-h3'>无公害</view>
+                  <view class='information-span'>标识</view>
+                </view>
+                <view class='feature-vertical'></view>
+                <view class='feature-identification'>
+                  <view class='identification-h3'>蟹黄丰富</view>
+                  <view class='information-span'>特色</view>
+                </view>
+              </view>
+              <view class='information-price'>
+                <view class='information-price-num'>
+                  <view class='price-span' style='font-size:22rpx;'>￥</view>
+                  <view class='price-span'>19.80</view>
+                  /只
+                </view>
+                <view class='information-price-cart'></view>
+              </view>
+            </view>
+          </navigator>
+        </block>
+        <view class='look-at-more'>
+          <view class='more-text'>释放查看</view>
+          <view class='more-icon'></view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view id='BEST'>
+    <view class='best-title'>
+      盒马精选·
+      <text>BEST</text>
+    </view>
+    <view class='best-content'>
+      <view class='content-picture'>
+        <image class='content-picture'></image>
+      </view>
+      <scroll-view class='content-goods' scroll-x='ture' bindscrolltolower="morecate">
+        <view class='content-goods-list'>
+          <block wx:for="{{[1,2,3,4,5,6,7,8]}}" wx:key="{{index}}">
+            <navigator class='best-goods' url='../../goods/pages/details/details' hover-class='none'>
+              <view class='best-goods-img'>
+                <image src='' class='best-goods-img'></image>
+              </view>
+              <view class='best-goods-name'>阳澄湖大闸蟹母3只74.90元</view>
+              <view class='best-goods-price'>
+                <view class='goods-price-num'>
+                  <view class='price-span' style='font-size:22rpx;'>￥</view>
+                  <view class='price-span'>74.90</view>
+                  /只
+                </view>
+                <view class='goods-price-cart'></view>
+              </view>
+            </navigator>
+          </block>
+          <view class='look-at-more'>
+            <view class='more-text'>释放查看</view>
+            <view class='more-icon'></view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <explore feature="explore-goods-information" explore="explore"></explore>
+
+  <view class='get_into' wx:if="{{userInfoFlag}}">
+    <button class='get_userinfo' open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信登录</button>
+  </view>
+</view>

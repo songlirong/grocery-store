@@ -1,0 +1,91 @@
+<wxs src="../../../../wxs/tools.wxs" module="tools" />
+<view class='order-header'>
+  <view class='top'></view>
+  <view class='head'>
+    <navigator class='zuo' open-type='navigateBack'></navigator>
+    <text>订单详情</text>
+    <view class='you'></view>
+  </view>
+</view>
+<view wx:for="{{orderInfo}}" wx:key="key">
+<view class="c-middle">
+  <view class='c-middle-content'>
+    <view class='c-content-left'>
+      <!-- <view class='c-content-top'>待付款</view> -->
+      <view class='c-content-top' wx:if="{{item.order_status == 1}}">待付款</view>
+      <view class='c-content-top' wx:if="{{item.order_status == 2}}">待发货</view>
+      <view class='c-content-top' wx:if="{{item.order_status == 3}}">待收货</view>
+      <view class='c-content-top' wx:if="{{item.order_status == 4}}">待评价</view>
+      <view class='c-content-bottom'>订单未完成，请及时操作</view>
+    </view>
+    <view class='c-content-right'></view>
+  </view>
+</view>
+<view class='pay-content'>
+  <view class='pay-place'>
+    <view class='pay-place-top'>
+      <view class='position-icon'>
+      </view>
+      <view class='position-detail'>
+        收货人：{{item.receiver_name}}
+      </view>
+      <view class='position-tel'>
+        {{item.phone}}
+      </view>
+    </view>
+    <view class='pay-place-bottom'>
+      <view class='position-bottom-detail'>
+        {{item.address}}
+      </view>
+    </view>
+  </view>
+  <block class='pay-shop'>
+    <view class='pay-shop-item'>
+      <view class='pay-shops' wx:for="{{item.orderProducts}}" wx:key="key" wx:for-item="items">
+        <view class='shop-item'>
+          <view class='shop-img'>
+            <image src="{{items.image}}"></image>
+          </view>
+          <view class='shop-info'>
+            <view class='shop-names'>
+              {{items.name}}
+            </view>
+            <view class='shop-desc'>
+              {{items.short_description}}
+            </view>
+            <view class='shop-one'>
+              单价：￥{{items.special_price}}
+            </view>
+            <view class='shop-number'>
+              数量：{{items.count}}盒
+            </view>
+          </view>
+          <view class='shop-price'>
+            ￥{{tools.subtotal1(items)}}
+          </view>
+          <view class='shop-back'>申请退款</view>
+        </view>
+      </view>
+    </view>
+    <view class='pay-money'>
+      <view class='pay-money-content'>
+        <view class='pay-money-top'>
+          <view class='pay-money-item'>
+            <view>商品小计</view>
+            <view>￥{{item.order_price}}</view>
+          </view>
+
+          <view class='pay-money-item'>
+            <view>邮费</view>
+            <view>￥100.00</view>
+          </view>
+        </view>
+        <view class='pay-money-bottom'>
+        <view>应付金额合计</view>
+        <view>￥200.00</view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+</view>

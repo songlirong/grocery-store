@@ -1,0 +1,94 @@
+<view class='body'>
+  <view class="header"></view>
+  <view class="header-img"></view>
+  <view class='gai'></view>
+  <view class="message">
+    <view class='my-head'>
+      <image src='{{personalInfo.avatar_url}}'></image>
+    </view>
+    <view class='my-name'>{{personalInfo.nick_name}}</view>
+    <view class='my-code'>
+      <view class='code-one'></view>
+      <view class='code-two'></view>
+    </view>
+    <view class='my-ticket'>
+      <view class='coupon'>
+        <text class='text-number'>6</text>
+        <text class='text-word'>仙帝</text>
+      </view>
+      <view class='giftcard'>
+        <text class='text-number'>0.00</text>
+        <text class='text-word'>账户余额</text>
+      </view>
+      <view class='electronic-coupon'>
+        <text class='text-number'>0</text>
+        <text class='text-word'>仙气值</text>
+      </view>
+    </view>
+  </view>
+  <view class='order'>
+    <view class='order-top'>
+      <view class='order-top-box' bindtap='allForm'>
+        <text class='my-order-text'>我的订单</text>
+        <view class='more-order'>
+          <text class='more-order-text'>查看更多订单</text>
+          <view class='more-img'></view>
+        </view>
+      </view>
+    </view>
+    <view class='order-bottom bottom'>
+      <view class="order-payment bottom-content" bindtap='noPay'>
+        <view class='image img-fu'></view>
+        <text>待付款</text>
+      </view>
+      <view class='order-distribution bottom-content' bindtap='noSend'>
+        <view class='image img-pei'></view>
+        <text>待发货</text>
+      </view>
+      <view class='order-received bottom-content' bindtap='sended'>
+        <view class='image img-shou'></view>
+        <text>待收货</text>
+      </view>
+      <view class='order-evaluate bottom-content' bindtap='evaluate'>
+        <view class='image img-ping'></view>
+        <text>待评价</text>
+      </view>
+    </view>
+  </view>
+  <view class='tool'>
+    <view class='tool-top'>
+      <view class='tool-top-box'>
+        <text>常用工具</text>
+      </view>
+    </view>
+    <view class='tool-bottom bottom'>
+      <view class='tool-bottom-one'>
+        <view class='order-evaluate bottom-content'>
+          <view class='image img-yao'></view>
+          <text>邀请有礼</text>
+          <text class='orange'>各自得15元</text>
+        </view>
+        <view class='order-evaluate bottom-content'>
+          <view class='image img-dian'></view>
+          <text>盒马门店</text>
+        </view>
+        <view class='order-evaluate bottom-content'>
+          <view class='image img-huan'></view>
+          <text>兑换优惠券</text>
+        </view>
+        <view class='order-evaluate bottom-content'>
+          <view class='image img-pingjia'></view>
+          <text>我的评价</text>
+        </view>
+      </view>
+      <view class='tool-bottom-two'>
+        <view class='order-evaluate bottom-content'>
+          <view class='image img-mi'></view>
+          <text>盒马小蜜</text>
+          <text class='orange'>有问题找小蜜</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <explore feature="guess-content-details" explore="explore"></explore>
+</view>

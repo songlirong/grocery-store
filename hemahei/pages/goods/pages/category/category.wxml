@@ -1,0 +1,110 @@
+
+<view class="c-head">
+  <navigator open-type='navigateBack'>
+    <view class='c-head-left'>
+    </view>
+  </navigator>
+  <view class='c-head-right'>
+    <view class='right1'>{{titleInfo.name}}
+      <navigator url='../../../tabBar/car/car' open-type="reLaunch">
+        <view id='shop'>
+          <view class='num-mark' wx:if="{{cartsnum>0}}">{{cartsnum}}</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>
+<view class='c-body'>
+  <view class='c-body-left'>
+    <view class="c-body-scroll">
+      <view class="c-list {{currentItem==0?'active':''}}" data-id="0" bindtap="tagChoose">热品推荐</view>
+      <view class="c-list {{currentItem==item.id?'active':''}}" data-id="{{item.id}}" bindtap="tagChoose" wx:for="{{array}}" wx:key="{{item.id}}">{{item.name}}</view>
+    </view>
+  </view>
+  <view class="c-body-right {{flag1?'active':''}}">
+    <scroll-view scroll-y="false" scroll-with-animation="true" style="height:100%;" bindscroll="scrolling" wx:if="{{!goodsList}}">
+      <view class="c-body-scroll">
+        <view class='c-body-box'>
+          <view class='c-body-picture'>
+            <image src=""></image>
+          </view>
+        </view>
+        <view class="scroll-title {{scrollTop>120?'active':''}}">
+          <scroll-view scroll-x="true" class='scroll-box' scroll-left="{{num}}" scroll-with-animation="true">
+            <view class='title'>
+              <view class="c-nav {{currentItem1==index?'active':''}}" wx:for="{{title}}" wx:key="{{index}}" data-id="son{{item.id}}" bindtap="tagChoose1" data-index="{{index}}" id="f{{item.id}}">{{item.text}}</view>
+            </view>
+          </scroll-view>
+          <view class='xiala-box' bindtap="tagFlag">
+            <view class="scroll-xiala {{flag?'active':''}}">
+            </view>
+          </view>
+          <view class='shade-bottom' wx:if="{{flag1}}" bindtap="tagFlag1">
+            <view class="shade" wx:if="{{flag1}}" bindtap="tagFlag1" catchtouchmove>
+            </view>
+            <view class='shade-box' catchtap>
+              <view class="shade-list {{currentItem1==index?'active':''}}" wx:for="{{title}}" data-id="{{item.id}}" bindtap="tagChoose1" wx:key="{{index}}" data-index="{{index}}">{{item.text}}</view>
+            </view>
+          </view>
+        </view>
+        <block wx:for="{{title}}" wx:key="{{index}}">
+          <view class='c-body-content' id="son{{item.id}}">
+            <view class='content-top' id="title{{index}}">{{item.text}}</view>
+            <view class='content-bottom'>
+              <view class='c-item' wx:for="{{item.goods}}" wx:key="index">
+                <navigator url='/pages/goods/pages/details/details?id={{item.id}}' hover-class='none'>
+                  <view class='c-item-picture'>
+                    <image src=""></image>
+                  </view>
+                  <view class='c-item-right'>
+                    <view class='c-item-name'>{{item.name}}</view>
+                    <view class='c-item-desc'>{{item.desc}}</view>
+                    <view class='c-item-other'>
+                      <view class='c-item-price'>
+                        <view class='c-price-num'>￥{{item.price}}</view>
+                      </view>
+                      <view catchtap>
+                        <view class="shop" bindtap="addCar" data-id="{{item.id}}">
+                          <view wx:if="{{dianid==item.id}}" class="c-item-mask" animation="{{animation}}"></view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </navigator>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+    <scroll-view scroll-y="false" scroll-with-animation="true" style="height:100%;" wx:if="{{goodsList}}" bindscrolltolower="touchBottom">
+      <view class='c-body-scroll'>
+        <view class='c-body-content'>
+          <view class='content-bottom'>
+            <view class='c-item' wx:for="{{goodsList}}" wx:key="{{index}}">
+              <navigator url='/pages/goods/pages/details/details?id={{item.id}}' hover-class='none'>
+                <view class='c-item-picture'>
+                  <image src="{{item.image}}"></image>
+                </view>
+                <view class='c-item-right'>
+                  <view class='c-item-name'>{{item.name}}</view>
+                  <view class='c-item-desc'>{{item.short_description}}</view>
+                  <view class='c-item-other'>
+                    <view class='c-item-price'>
+                      <view class='c-price-num'>￥{{item.price}}</view>
+                    </view>
+                    <view catchtap>
+                      <view class="shop" bindtap="addCar" data-id="{{item.id}}">
+                        <view wx:if="{{dianid==item.id}}" class="c-item-mask" animation="{{animation}}"></view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </navigator>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

@@ -1,0 +1,42 @@
+<view class='search'>
+  <view class='search-title'>
+    <view class='search-title-content'>
+      <navigator class='search-back' open-type='navigateBack'></navigator>
+      <view class='search-input'>
+        <input class='search-input-text' placeholder-style='font-size: 26rpx;color:#999;' placeholder='牛排' auto-focus='ture' bindinput='bindInput' value='{{inputValue}}'> </input>
+        <view class='search-input-icon' bindtap='setSearchStorage'></view>
+      </view>
+      <view class='search-btn'></view>
+    </view>
+  </view>
+  <view class='search-history' wx:if="{{arr}}">
+    <view class='search-history-title'>
+      搜索历史
+      <view class='delete-btn' bindtap='deleteHistory'></view>
+    </view>
+    <view class='search-history-content'>
+      <block wx:for="{{arr}}" wx:key="{{index}}">
+        <view class='content-list' bindtap='getSearchValue' data-searchValue='{{item}}'>{{item}}</view>
+      </block>
+    </view>
+  </view>
+  <view class='search-hot' wx:if="{{arr}}">
+    <view class='search-hot-title'>
+      仙界资讯 实时热搜
+      <view class='refresh-btn'></view>
+    </view>
+    <view class='search-hot-content'>
+      <block wx:for="{{arr}}" wx:key="{{index}}">
+        <view class='content-list'>{{item}}</view>
+      </block>
+    </view>
+  </view>
+  <view class='search-hot-cate' wx:if="{{arr}}">
+    <view class='search-hot-cate-title'>实时热搜品类</view>
+    <view class='search-hot-cate-content'>
+      <block wx:for="{{arr}}" wx:key="{{index}}">
+        <view class='content-list'>{{item}}</view>
+      </block>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,43 @@
+<view class="invoice-box">
+  <view class='invoice-header'>
+    <navigator open-type='navigateBack' hover-class='none'>
+      <view class='back'></view>
+    </navigator>
+    <view class='invoice-cate'>
+      发票
+    </view>
+    <view class='back1'></view>
+  </view>
+  <view class="invoice-content">
+    <view class='invoice-title'>
+      发票类型
+    </view>
+    <view class='invoice-type'>
+      <view class='no-invoice'>
+        不开发票
+      </view>
+      <view class='yes-invoice no-choose'>
+        电子发票
+        <view class='warn'></view>
+      </view>
+    </view>
+  </view>
+  <view class='careful'>
+    <view class='careful-title'>
+      温馨提示
+    </view>
+    <view class='careful-txt'>
+      礼品卡/储值卡支付金额不支持开具发票
+    </view>
+    <view class='careful-txt'>
+      代跑腿商品 （如：烟等）不支持开具电子发票
+    </view>
+  </view>
+  <view class='sure'>
+    <navigator url='../pay/pay' hover-class='none'>
+      <view class='sure-btn'>
+        确认
+      </view>
+    </navigator>
+  </view>
+</view>

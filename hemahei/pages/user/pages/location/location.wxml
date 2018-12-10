@@ -1,0 +1,61 @@
+<view class='select-location'>
+  <!-- title -->
+  <view class='location-title' style='position:relative;'></view>
+  <view class='location-title'>
+    <view class='location-title-head'>
+      <navigator class='title-head-back' open-type='navigateBack'></navigator>
+      <view class='title-head-text'>选择收货地址</view>
+      <view class='title-head-text'></view>
+    </view>
+    <view class='location-title-feed'>
+      <view class='location-icon'></view>
+      <input class='location-title-search' placeholder='请输入收货地址' placeholder-style='font-size:25rpx;color:909090;'></input>
+    </view>
+  </view>
+  <view class='now-location'>
+    <view class='now-location-icon'></view>
+    <view class='now-location-text'>
+      送至：{{addressInfo}}
+    </view>
+  </view>
+  <view class='my-location'>
+    <view class='location-text'>我的收货地址</view>
+    <block wx:for="{{locationInfo}}" wx:key="{{index}}">
+      <view class='my-location-information' bindtap='choose' data-id='{{item.address_id}}'>
+        <view class='information-text'>
+          <view class='text-name'>{{item.receiving_name}} {{item.receiving_phone}}</view>
+          <view class='text-location'>{{item.address_info}}</view>
+        </view>
+        <view class='information-select' wx:if="{{choice == item.address_id}}"></view>
+      </view>
+    </block>
+    <view class='no-address'  wx:if="{{!locationInfo}}">暂无地址，赶快添加你的专属地址</view>
+  </view>
+  <!-- <view class='near-location'>
+    <view class='location-text'>附近地址</view>
+    <view class='near-location-list'>
+      <view class='near-location-li'>
+        <text>C立方创空间</text>
+        <view class='new-location'>
+          <view class='new-location-icon'></view>
+          <text>重新定位</text>
+        </view>
+      </view>
+      <view class='near-location-li'>
+        <text>凯通大厦</text>
+      </view>
+      <view class='near-location-li'>
+        <text>太原市大学生创业科技园</text>
+      </view>
+      <view class='near-location-li'>
+        <text>钢铁宿舍</text>
+      </view>
+      <view class='near-location-li near-location-more' bindtap='locationchoose'>
+        <text>更多地址</text>
+        <view class='near-location-more-icon'></view>
+      </view>
+    </view>
+  </view> -->
+
+  <navigator class='add-location' url="../locationadd/locationadd">新增地址</navigator>
+</view>

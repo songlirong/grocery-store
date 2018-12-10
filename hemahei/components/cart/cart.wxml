@@ -1,0 +1,91 @@
+<wxs src="../../wxs/tools.wxs" module="tools" />
+<view class='car-header'>
+  <view class='car-del' bindtap='delAll'>删除</view>
+  <view class='car-category'>购物车</view>
+  <view class='car-del'></view>
+</view>
+<view class='shopping hot'>
+  <view class='show-list' wx:if="{{carts.length}}">
+    <view class='shop-list'>
+      <view class='slide' wx:for="{{carts}}" wx:key="{{index}}">
+        <slide-view width="750" height="280" slide-width="150">
+          <view slot="left" class="l">
+            <view class='shop-item'>
+              <icon wx:if="{{item.goods_status}}" type="success" color="red" data-id="{{item.id}}" data-productStatus="{{item.goods_status}}" class="cart-pro-select" bindtap="selectList" />
+              <icon wx:else type="circle" class="cart-pro-select" data-id="{{item.id}}" data-productStatus="{{item.goods_status}}" bindtap="selectList" />
+              <view class='shop-photo'>
+                <image src="{{item.product.image}}"></image>
+              </view>
+              <view class='shop-info'>
+                <view class='shop-names'>{{item.product.name}}</view>
+                <view class='shop-num'>
+                  <view class='spec'>{{item.product.short_description}}</view>
+                  <view class='unit'>
+                    <view class='unit-left'>
+                      <view class='unit-num'>
+                        <text>￥</text>
+                        <view class='unit-num-zi'>{{item.product.special_price}}</view>
+                      </view>
+                      <view class='danwei'></view>
+                    </view>
+                    <view class='numbers'>
+                      <view class="reduce" bindtap="minusCount" data-id="{{item.id}}">-</view>
+                      <input class='numbers-num' data-id="{{item.id}}" bindinput="bindManual" type='number' value='{{item.goods_number}}'></input>
+                      <view class='add' bindtap="addCount" data-id="{{item.id}}">+</view>
+                    </view>
+                  </view>
+                </view>
+                <view class='shop-price'>
+                  小计：
+                  <view class='shop-p' bindtap='smallPrice'>
+                    ￥{{tools.subtotal(item)}}
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view slot="right" class="r">
+            <view class='delete' bindtap="deleteList" data-id="{{item.goods_id}}">删除</view>
+          </view>
+        </slide-view>
+      </view>
+    </view>
+  </view>
+  <view class='show' wx:else>
+    <view class='hippo'></view>
+    <view class='shopping-text'>
+      <view class='shopping-text1'>
+        购物车无商品
+      </view>
+      <view class='shopping-text2'>
+        “饿即是空，空即是饿”
+      </view>
+    </view>
+  </view>
+</view>
+<view class="balance">
+  <icon wx:if="{{selectAllStatus}}" type="success" color="red" class="total-select" bindtap="selectAll" />
+  <icon wx:else type="circle" color="#d3d3d3" class="total-select" bindtap="selectAll" />
+  <view class="all">全选</view>
+  <view class='balance-content'>
+    <view class='b-price'>
+      <view class='concession'>
+        已优惠：￥
+        <view class='concession-num'>
+          5
+        </view>
+      </view>
+      <view class='total-price'>
+        合计：
+        <view class='total-price-num'>
+          ￥{{tools.totalPrice(carts)}}
+        </view>
+      </view>
+    </view>
+    <navigator url='../../transaction/pages/pay/pay' hover-class='none'>
+      <view class='balance-btn'>
+        去结算
+      </view>
+    </navigator>
+  </view>
+</view>

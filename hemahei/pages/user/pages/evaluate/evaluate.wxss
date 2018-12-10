@@ -1,0 +1,186 @@
+.evaluate {
+  width: 100%;
+  height: 1334rpx;
+  background: #fff;
+}
+
+.top {
+  width: 100%;
+  height: 40rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.evaluate-header {
+  width: 100%;
+  height: 114rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #e5e5e5;
+  text-align: center;
+  line-height: 114rpx;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.evaluate-back {
+  width: 100rpx;
+  height: 100%;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAABtUlEQVRYR+2YsUrEQBCG/62CIJvurkmZ7hq5w0YQrEQQQQstxMJK38C38AW0s9HO6sRDEbXfeYJ7BJs0gqisLCSwhBRJdjZM4dW53Jf/m5vMrILwjxLOh3/AylCe54nW+hbABxGdtTU3SIIOLk3TRwBb1tprUYA+HIDXoih2lsvll4gEsyxbGY/HDy45AE9FUex1gXMPEU2xgxuNRs9KqQ0HB2DXGPPdNrnquiiAXHBREqzBzQEc9EkuSoJ1OGPMPoCfrlr969kUTyaT1SRJFmXNzTng2BSXcC9KqXVr7T0RHYUmx6a4Ae4QwG+IVjbFseGCFOd5rrXWrs9VWlmTC1Ls4NI0fQOwZq29I6ITTq1BihvgjgFYrpqr36dTmxkarnMNzmazBYBtADfGmNOYyfWqwel0+q6U2hQLKF6xi31oyE5/Em+/kNtmfEixjbqCFP2qGwqyVw3Wu73ocaspSQCyBtYaJOtUzaLYV869l7ADOljOzS4KYAOkrMW9Us6xwEdL0If0z2e6HoFEBywHDP/47YqIzttO4IMAVpBa60sAn0R0IQ6wLVDQTtL3R0K+N5jivpB/T2/+KVQKn+cAAAAASUVORK5CYII=') no-repeat left center / 35rpx auto;
+}
+
+.evaluate-title {
+  min-width: 100rpx;
+  height: 100%;
+  line-height: 114rpx;
+  font-size: 40rpx;
+  color: #080808;
+  font-weight: 550;
+}
+
+.evaluate-content {
+  width: 100%;
+  height: auto;
+}
+
+.order-empty-item2 {
+  width: 700rpx;
+  height: 162rpx;
+  border-radius: 30rpx;
+  background: #fafafa;
+  display: flex;
+  margin: 10rpx auto;
+}
+
+.empty-item2-left {
+  width: 506rpx;
+  height: 100%;
+  margin-left: 18rpx;
+}
+
+.empty-item2-left scroll-view {
+  width: 506rpx;
+  height: 162rpx;
+  overflow: hidden;
+}
+
+.item2-left-scroll {
+  width: auto;
+  height: 162rpx;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.item2-left-scroll .empty-shop {
+  width: 126rpx;
+  height: 126rpx;
+  border-radius: 20rpx;
+  margin-left: 18rpx;
+  box-sizing: border-box;
+}
+
+.empty-shop image {
+  width: 126rpx;
+  height: 100%;
+}
+
+.item2-left-scroll .empty-shop:nth-child(1) {
+  margin-left: 0;
+}
+
+.empty-item2-right {
+  width: calc(100% - 506rpx);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #8a8a8a;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+}
+
+.empty-item2-right text {
+  font-size: 20rpx;
+}
+
+.item2-right-icon {
+  width: 14rpx;
+  height: 24rpx;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAsUlEQVRIS83VsQ3DIBCFYSxG8CTpksIDuQeJBVIAm9Anm2QA2gzBRe6iKOB7d7EUev4PkNBN5uA19fqlFFtrnb33T80ZukDO+dJauxHREkJ4SJEusAVTSisRXTXIEPgFsgtoERagQdiAFIEACQIDKCICEEQMvCPW2pNzrn77jP8LcH+56Abc+PZkMIDEYQCNQ4AkzgakcRagie8C2vgQiDGejTF3zTQbAocPfemQ/9z3AiyG4RlwaBfWAAAAAElFTkSuQmCC) no-repeat center center / 14rpx 24rpx;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.evaluate-input-content {
+  width: 100%;
+  height: auto;
+}
+
+.evaluate-input {
+  background: #fff;
+  width: 100%;
+  height: 200rpx;
+  line-height: 42rpx;
+  font-size: 30rpx;
+  color: #666;
+  outline: none;
+  border-top: 10rpx solid #e5e5e5;
+  border-bottom: 2rpx solid #e5e5e5;  
+  padding: 20rpx 24rpx;
+  box-sizing: border-box;
+}
+
+.evaluate-placeholder {
+  font-size: 30rpx;
+  color: #999;
+  line-height: 42rpx;
+}
+
+.evaluate-btn {
+  width: 500rpx;
+  height: 80rpx;
+  background: #1269ff;
+  color: #fff;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 80rpx;
+  margin-top: 30rpx;
+  border-radius: 40rpx;
+}
+
+.evaluate-status{
+  width: 100%;
+  height: 150rpx;
+  padding: 0 50rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 10rpx solid #e5e5e5;
+}
+
+.evaluate-sta{
+  width: 160rpx;
+  height: 60rpx;
+  background: #e5e5e5;
+  color: #666;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+}
+
+.evaluate-sta.hot{
+  background: #1269ff;
+  color: #fff;
+  font-weight: bold;
+}

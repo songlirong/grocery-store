@@ -1,0 +1,72 @@
+{
+  "pages": [
+    "pages/tabBar/index/index",
+    "pages/tabBar/car/car",
+    "pages/tabBar/my/my",
+    "pages/tabBar/cate/cate"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "backgroundColorTop": "#0acaff"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/tabBar/index/index",
+        "text": "首页",
+        "iconPath": "img/tabBar1off.png",
+        "selectedIconPath": "img/tabBar1.png"
+      },
+      {
+        "pagePath": "pages/tabBar/cate/cate",
+        "text": "分类",
+        "iconPath": "img/tabBar2off.png",
+        "selectedIconPath": "img/tabBar2.png"
+      },
+      {
+        "pagePath": "pages/tabBar/car/car",
+        "text": "购物车",
+        "iconPath": "img/tabBar3off.png",
+        "selectedIconPath": "img/tabBar3.png"
+      },
+      {
+        "pagePath": "pages/tabBar/my/my",
+        "text": "我的",
+        "iconPath": "img/tabBar4off.png",
+        "selectedIconPath": "img/tabBar4.png"
+      }
+    ],
+    "color": "#999999",
+    "selectedColor": "#23a3ff",
+    "backgroundColor": "#ffffff"
+  },
+  "subPackages": [
+    {
+      "root": "pages/user/",
+      "pages": [
+        "pages/order/order",
+        "pages/location/location",
+        "pages/locationadd/locationadd",
+        "pages/login/login",
+        "pages/orderdetail/orderdetail",
+        "pages/evaluate/evaluate"
+      ]
+    },
+    {
+      "root": "pages/transaction/",
+      "pages": [
+        "pages/pay/pay",
+        "pages/invoice/invoice"
+      ]
+    },
+    {
+      "root": "pages/goods/",
+      "pages": [
+        "pages/category/category",
+        "pages/details/details",
+        "pages/search/search",
+        "pages/result/result"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+// 计算小计价格
+var subtotal = function (e) {
+  var price = e.goods_number * e.product.price;
+  return price.toFixed(2)
+}
+var subtotal1 = function (e) {
+  var price = e.count * e.special_price;
+  return price.toFixed(2)
+}
+var totalPrice = function(e){
+  console.log(e)
+  var price = 0;
+  e.forEach(function(val,index){
+    if(val.goods_status == 1){
+      price = price + (val.product.price * val.goods_number)
+    }
+  })
+  return price.toFixed(2)
+}
+var showTime = function (e) {
+  var data = getDate(e * 1000);
+  var year = data.getFullYear();
+  var month = data.getMonth() + 1;
+  var date = data.getDate();
+  var hour = data.getHours();
+  var minute = data.getMinutes();
+  var second = data.getSeconds();
+  return year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second;
+}
+module.exports = {
+  subtotal: subtotal,
+  subtotal1: subtotal1,
+  totalPrice: totalPrice,
+  showTime:showTime
+};

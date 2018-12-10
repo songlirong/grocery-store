@@ -1,0 +1,81 @@
+<view class='d-top'>
+  <navigator class="d-top-fan {{distance>50?'active':''}}" open-type='navigateBack'></navigator>
+  <view class="d-top-header {{distance>50?'active':''}}"></view>
+  <view class='d-top-image'>
+    <swiper indicator-dots="true" current="0" bindchange='addIndex' circular='true'>
+      <swiper-item>
+        <image src="{{product.image}}" class="swiper-image" />
+      </swiper-item>
+    </swiper>
+    <!-- <view class='d-top-image-num'>{{index}}/{{index}}</view> -->
+  </view>
+  <view class='d-top-middle'>
+    <view class='d-top-text'>
+      <text class='d-top-title' space="nbsp">{{product.name}}</text>
+      <text class='d-top-desc' space="nbsp">{{product.short_description}}</text>
+    </view>
+    <view class='share'>
+      <button open-type='share' class='share'>
+        <view class='share-icon'></view>
+        <view>分享</view>
+      </button>
+    </view>
+  </view>
+  <view class='d-top-group'>
+    <view class='d-top-price'>
+      <text>￥</text>
+      <text>{{product.price}}</text>
+    </view>
+    <navigator class='d-top-shop' url='/pages/tabBar/car/car' open-type='reLaunch' hover-class='none'>
+      <view class="d-group-shop {{cartsnum>0 ?'shop2' :''}}">
+        <view class='num-mark' wx:if="{{cartsnum>0}}">{{cartsnum}}</view>
+      </view>
+    </navigator>
+  </view>
+  <view class='d-top-time'>
+    <view class='top-time-img'></view>
+    <view class='top-time-text'>现在下单，最快今日
+      <text>17:00-17:30</text>送达(免运费)</view>
+  </view>
+  <view class='d-top-selected'>
+    <view>已选
+      <text>1kg</text>/
+      <text>袋</text>
+    </view>
+    <view class='top-selected-icon'></view>
+  </view>
+  <view class='d-top-details'>
+    <view class='top-details-header' id='top-details-header'>详情</view>
+    <view class='top-details-bottom'>
+      <view class='details-bottom-item'>
+        <view class='bottom-item1'>品牌</view>
+        <view>盒马</view>
+      </view>
+      <view class='details-bottom-item'>
+        <view class='bottom-item1'>产地</view>
+        <view>黑龙江省哈尔滨市</view>
+      </view>
+      <view class='details-bottom-item'>
+        <view class='bottom-item1'>净含量</view>
+        <view>1kg</view>
+      </view>
+      <view class='details-bottom-item'>
+        <view class='bottom-item1'>存储条件</view>
+        <view>常温</view>
+      </view>
+    </view>
+  </view>
+</view>
+<car-guess explore='car-guess' id='explore-like'></car-guess>
+<view class="header {{distance>50?'active':''}}">
+  <view class="header-top">
+    <text class='header-top-title' space="nbsp">{{item.title}}</text>
+  </view>
+  <view class='header-title-list'>
+    <view class="header-title-name {{currentid==1?'active':''}}" bindtap='changeColor' data-id="1">商品</view>
+    <view class="header-title-name {{currentid==2?'active':''}}" bindtap='changeColor' data-id="2">详情</view>
+    <view class="header-title-name {{currentid==3?'active':''}}" bindtap='changeColor' data-id="3">评价</view>
+    <view class="header-title-name {{currentid==4?'active':''}}" bindtap='changeColor' data-id="4">推荐</view>
+  </view>
+</view>
+<view class='footer' bindtap="addCar">加入购物车</view>

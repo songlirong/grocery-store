@@ -1,0 +1,108 @@
+<wxs src="../../../../wxs/tools.wxs" module="tools" />
+<view class='order-header'>
+  <view class='top'></view>
+  <view class='head'>
+    <navigator class='zuo' open-type='navigateBack'></navigator>
+    <text>全部订单</text>
+    <view class='you'></view>
+  </view>
+</view>
+<view class='list'>
+  <view class='swiperTab'>
+    <view class="content-list {{currentTab == '0' ? 'hot' : ''}}" bindtap='clickTab' data-current='0'>
+      全部分类
+    </view>
+    <view class="content-list {{currentTab == '1' ? 'hot' : ''}}" bindtap='clickTab' data-current='1'>
+      待付款
+    </view>
+    <view class="content-list {{currentTab == '2' ? 'hot' : ''}}" bindtap='clickTab' data-current='2'>
+      待发货
+    </view>
+    <view class="content-list {{currentTab == '3' ? 'hot' : ''}}" bindtap='clickTab' data-current='3'>
+      待收货
+    </view>
+    <view class="content-list {{currentTab == '4' ? 'hot' : ''}}" bindtap='clickTab' data-current='4'>
+      待评价
+    </view>
+  </view>
+  <!-- 全部分类 -->
+  <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" class='order-empty'>
+    <!-- 全部 -->
+    <block wx:for='{{[1,2,3,4,5]}}' wx:key='{{index}}'>
+      <swiper-item>
+        <block wx:for='{{orderInfo}}' wx:key='{{index}}'>
+          <view class='order-empty-list' wx:if="{{orderInfoFlag}}">
+            <view class='order-empty-item1'>
+              <view class='empty-item1-left'>订单号：{{item.order_sn}}</view>
+              <view class='empty-item1-right' wx:if="{{item.order_status == 1}}">待付款</view>
+              <view class='empty-item1-right' wx:if="{{item.order_status == 2}}">待发货</view>
+              <view class='empty-item1-right' wx:if="{{item.order_status == 3}}">待收货</view>
+              <view class='empty-item1-right' wx:if="{{item.order_status == 4}}">待评价</view>
+            </view>
+            <view class='order-empty-item2'>
+              <view class='empty-item2-left'>
+                <scroll-view scroll-x="true">
+                  <view class='item2-left-scroll'>
+                    <block wx:for='{{item.orderProducts}}' wx:key='{{index}}'>
+                      <view class='empty-shop'>
+                        <image src='{{item.image}}'></image>
+                      </view>
+                    </block>
+                  </view>
+                </scroll-view>
+              </view>
+              <navigator url="../orderdetail/orderdetail?order_sn={{item.order_sn}}" class='orderdetails'>
+                <view class='empty-item2-right'>
+                  <view>共{{item.orderProducts.length}}件商品</view>
+                  <view class='item2-right-icon'></view>
+                </view>
+              </navigator>
+            </view>
+            <view class='order-empty-item3'>
+              <view class='empty-item3-top'>
+                <text>合计:</text>
+                <text>￥</text>
+                <text>{{item.order_price}}</text>
+              </view>
+              <view class='empty-item3-bottom'>
+                <view>下单时间 {{tools.showTime(item.add_time)}}</view>
+              </view>
+            </view>
+            <view class='order-empty-item4' wx:if="{{item.order_status == 1}}">
+              <view class='empty-item4-botton Btn-quxiao'>
+                <text>取消订单</text>
+              </view>
+              <view class='empty-item4-botton Btn-zhifu'>
+                <text>继续支付</text>
+              </view>
+            </view>
+            <view class='order-empty-item4' wx:if="{{item.order_status == 2}}">
+              <view class='empty-item4-botton Btn-zhifu' bindtap='remindDelivery'>
+                <text>提醒发货</text>
+              </view>
+            </view>
+            <view class='order-empty-item4' wx:if="{{item.order_status == 3}}">
+              <view class='empty-item4-botton Btn-quxiao'>
+                <text>延迟收货</text>
+              </view>
+              <view class='empty-item4-botton Btn-zhifu' bindtap='confirmReceipt' data-orderId="{{item.id}}">
+                <text>确认收货</text>
+              </view>
+            </view>
+            <view class='order-empty-item4' wx:if="{{item.order_status == 4}}">
+              <navigator class='empty-item4-botton Btn-zhifu' url='../evaluate/evaluate?orderSn={{item.order_sn}}' hover-class='none'>
+                <text>去评价</text>
+              </navigator>
+            </view>
+          </view>
+          <view class='order-empty kong' wx:else>
+            <view class='empty-img'></view>
+            <text class='order-text1'>暂无订单</text>
+            <text class='order-text2'>"快点忙里偷闲下一单吧"</text>
+            <view class='order-refresh' bindtap='getOrder'>刷新</view>
+          </view>
+        </block>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

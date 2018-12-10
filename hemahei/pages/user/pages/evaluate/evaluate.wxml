@@ -1,0 +1,37 @@
+<view class="evaluate">
+  <view class='top'></view>
+  <view class='evaluate-header'>
+    <navigator open-type="navigateBack" class='evaluate-back' hover-class='none'></navigator>
+    <view class='evaluate-title'>订单评价</view>
+    <view class='evaluate-title'> </view>
+  </view>
+  <view class='evaluate-content'>
+    <view class='order-empty-item2'>
+      <view class='empty-item2-left'>
+        <scroll-view scroll-x="true">
+          <view class='item2-left-scroll'>
+            <block wx:for='{{product}}' wx:key='{{index}}'>
+              <view class='empty-shop'>
+                <image src='{{item.image}}'></image>
+              </view>
+            </block>
+          </view>
+        </scroll-view>
+      </view>
+      <view class='empty-item2-right'>
+        <view>共{{product.length}}件商品</view>
+        <view class='item2-right-icon'></view>
+      </view>
+    </view>
+    <form class='evaluate-input-content' bindsubmit="formSubmit">
+      <textarea class='evaluate-input' type='textarea' placeholder='商品满足你的期待吗？说说他的优点和美中不足的地方吧' placeholder-class='evaluate-placeholder' name="content"></textarea>
+      <view class='evaluate-status'>
+        <view class='evaluate-sta {{currentIdx == 1 ? "hot" : ""}}' data-idx='1' bindtap='chooseEvaluate'>好评</view>
+        <view class='evaluate-sta {{currentIdx == 2 ? "hot" : ""}}' data-idx='2' bindtap='chooseEvaluate'>中评</view>
+        <view class='evaluate-sta {{currentIdx == 3 ? "hot" : ""}}' data-idx='3' bindtap='chooseEvaluate'>差评</view>
+      </view>
+      <button form-type="submit" class='evaluate-btn'>发布</button>
+    </form>
+
+  </view>
+</view>

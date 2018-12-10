@@ -1,0 +1,93 @@
+<view class='{{explore}}' wx:if="{{explore=='explore'}}">
+  <view class='explore-title'>猜你喜欢·
+    <text class='text'>EXPLORE</text>
+  </view>
+  <view class='explore-content'>
+    <block wx:for="{{[1,2,3,4,5,6,7,8]}}" wx:key="{{index}}">
+      <navigator url='../../goods/pages/details/details' hover-class='none' class='explore-content-goods'>
+        <image class='explore-goods-img' src=''></image>
+        <view class="{{feature}} {{index==7?'wu' : ''}}" wx:if="{{feature==='explore-goods-information'}}">
+          <view class='information-h3'>
+            【100元6只】无公害大闸蟹
+            <view class='information-span'>蟹黄饱满，鲜香细腻</view>
+          </view>
+          <view class='information-feature'>
+            <view class='feature-identification'>
+              <view class='identification-h3'>产地</view>
+              <view class='information-span'>加拿大</view>
+            </view>
+            <view class='feature-vertical'></view>
+            <view class='feature-identification'>
+              <view class='identification-h3'>蟹黄丰富</view>
+              <view class='information-span'>特色</view>
+            </view>
+          </view>
+          <view class='information-price'>
+            <view class='information-price-num'>
+              <view class='price-span'>￥19.80</view>
+              /只
+            </view>
+            <view class='information-price-cart'></view>
+          </view>
+        </view>
+        <view class="{{feature}} {{index==7?'wu' : ''}}" wx:else>
+          <view class='guess-details-one'>柴火大院东北大米 寿司香米5KG/袋</view>
+          <view class='guess-details-two'>源自日本优质寿司米品种 颗粒圆润饱满粒粒</view>
+          <view class='guess-details-three'>
+            <view class='item-discount'>
+              <view class='discount'>
+                买1送1
+              </view>
+              <view class='discount discount1'>
+                明天送达
+              </view>
+            </view>
+          </view>
+          <view class='guess-details-four'>
+            <text>￥</text>
+            <text>79.80</text>
+            <text>/袋</text>
+            <view class='guess-four-img img-car'></view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>
+
+<view class='{{explore}}' wx:else>
+  <view class='guess-header'>
+    <view class='line line-right'></view>
+    猜你喜欢
+    <view class='line line-left'></view>
+  </view>
+  <view class='guess-content'>
+    <view class='guess-list'>
+      <block wx:for="{{[1,2,3,4,5,6,7,8]}}" wx:key="{{index}}">
+        <view class='guess-item'>
+          <view class='item-img'>
+            <image src=''></image>
+          </view>
+          <view class='item-content'>
+            <view class='item-names'>柴火大院东北大米 寿司香米5Kg一袋柴火大院东北大米 寿司香米5Kg一袋</view>
+            <view class='item-discount'>
+              <view class='discount'>买1送1</view>
+            </view>
+            <view class='dis-price'>￥88</view>
+            <view class='price'>
+              <view class='num-text'>
+                <view class='num num1'>￥</view>
+                <view class='num'>78.80</view>
+                <view class='num num2'>/袋</view>
+              </view>
+              <view class='car-logo'>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class='guess-footer'>没有更多了</view>
+    <view class='guess-kong'></view>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "cart": "../../../components/cart/cart",
+        "explore": "../../../components/explore/explore"
+    },
+    "enablePullDownRefresh": true
+}

@@ -1,0 +1,154 @@
+<wxs src="../../../../wxs/tools.wxs" module="tools" />
+<view class="pay-box">
+  <view class='qwer'></view>
+  <view class='pay-header'>
+    <navigator open-type='navigateBack'>
+      <view class='back-icon'></view>
+    </navigator>
+    <view class='pay-cate'>
+      确认订单
+    </view>
+    <view class='back-icons'></view>
+  </view>
+  <view class='pay-content'>
+    <navigator url='../../../user/pages/location/location' hover-class='none' class='pay-place'>
+      <view class='position-icon'>
+        {{locationInfo?locationInfo.address_info:'请选择收货地址'}}
+      </view>
+      <view class='next-icon'></view>
+    </navigator>
+    <block class='pay-shop' wx:for="{{products}}" wx:key="key">
+      <view class='pay-shop-item'>
+        <view class='pay-shops'>
+          <view class='shop-item'>
+            <view class='shop-img'>
+              <image src='{{item.product.image}}'></image>
+            </view>
+            <view class='shop-info'>
+              <view class='shop-names'>
+                {{item.product.name}}
+              </view>
+              <view class='shop-spec'>
+                {{item.product.short_description}}
+              </view>
+              <view class='shop-one'>
+                单价：￥{{item.product.special_price}}
+              </view>
+              <view class='shop-number'>
+                数量：{{item.goods_number}}
+              </view>
+            </view>
+          </view>
+          <view class='shop-price'>
+            合计：
+            <view class='price-num'>
+              ￥{{tools.subtotal(item)}}
+            </view>
+          </view>
+        </view>
+        <view class='invoice'>
+          <view class='invoice-name'>
+            发票
+          </view>
+          <navigator url='../invoice/invoice' hover-class='none'>
+            <view class='invoice-state'>
+              不开发票
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class='submit'>
+    <view class='submit-content'>
+      <view class='and-price'>
+        合计：
+        <view class='and-price-item'>
+          ￥{{tools.totalPrice(products)}}
+        </view>
+      </view>
+      <view class='submit-btn' bindtap='placeOrder'>
+        提交订单
+      </view>
+    </view>
+  </view>
+  <view class='mask'>
+    <view class='times'>
+      <view class='pay-header'>
+        <navigator open-type='navigateBack'>
+          <view class='back-icon'></view>
+        </navigator>
+        <view class='pay-cate'>
+          选择送达时间
+        </view>
+        <view class='back-icons'></view>
+      </view>
+      <view class='times-bottom'>
+        <view class='time-day'>
+          <view class='day-one day-select selects'>
+            今天
+          </view>
+        </view>
+        <view class='hours'>
+          <scroll-view scroll-y="true" style='height: 100%;'>
+            <view class='hours-item'>
+              <view class='time-slot selects'>
+                11:00-12:00
+              </view>
+              <view class='discount selects'>
+                免运费
+              </view>
+            </view>
+            <view class='hours-item'>
+              <view class='time-slot'>
+                11:00-12:00
+              </view>
+              <view class='discount'>
+                免运费
+              </view>
+            </view>
+            <view class='hours-item'>
+              <view class='time-slot'>
+                11:00-12:00
+              </view>
+              <view class='discount'>
+                免运费
+              </view>
+            </view>
+            <view class='hours-item'>
+              <view class='time-slot'>
+                11:00-12:00
+              </view>
+              <view class='discount'>
+                免运费
+              </view>
+            </view>
+            <view class='hours-item'>
+              <view class='time-slot'>
+                11:00-12:00
+              </view>
+              <view class='discount'>
+                免运费
+              </view>
+            </view>
+            <view class='hours-item'>
+              <view class='time-slot'>
+                11:00-12:00
+              </view>
+              <view class='discount'>
+                免运费
+              </view>
+            </view>
+          </scroll-view>
+        </view>
+        <view class='sure'>
+          <navigator url='../pay/pay' hover-class='none'>
+            <view class='sure-btn'>
+              确认
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

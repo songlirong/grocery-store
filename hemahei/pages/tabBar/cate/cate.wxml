@@ -1,0 +1,21 @@
+<view class="cate-box">
+  <view class='header'>
+    <view class='header-search'></view>
+    <view class='header-title'>分类</view>
+    <view class='header-search1'></view>
+  </view>
+  <view class='list-big-box'>
+    <view class='list-box'>
+      <block wx:for="{{picture}}" wx:key="{{index}}">
+        <navigator url='/pages/goods/pages/category/category?id={{item.id}}' hover-class='none'>
+          <view class='list'>
+            <view class='imgs'>
+              <image src='{{item.pic}}'></image>
+            </view>
+            <view class='list-names'>{{item.name}} </view>
+          </view>
+        </navigator>
+      </block>
+    </view>
+  </view>
+</view>
